@@ -1,12 +1,21 @@
 echo "Welcome"
-IS_FULL_TIME=1
-EMP_RATE_PER_HOUR=20
-randomcheck=$((RANDOM%2))
-if [ $IS_FULL_TIME -eq $randomcheck ]
-then
-        emphrs=8
-else
-	emphrs=4
-fi
-        salary=$(( $emphrs * $EMP_RATE_PER_HOUR ))
+isfulltime=2
+ispartime=1
+EMP_RATE_PER_HRS=20
+empcheck=$((RANDOM%2))
+
+ case $empcheck in 
+
+      $isfulltime)
+         emphrs=8
+	;;
+      $ispartime)
+	 emphrs=4
+	;;
+ *)
+	emphrs=0
+        ;;
+esac
+
+        salary=$(( $emphrs * $EMP_RATE_PER_HRS ))
         echo $salary
