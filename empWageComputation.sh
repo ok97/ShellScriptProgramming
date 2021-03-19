@@ -1,9 +1,12 @@
 echo "Welcome"
-ispresent=1
+IS_FULL_TIME=1
+EMP_RATE_PER_HOUR=20
 randomcheck=$((RANDOM%2))
-if [[ $ispresent -eq $randomcheck ]]
+if [ $IS_FULL_TIME -eq $randomcheck ]
 then
-      echo "Employee is Present"
+        emphrs=8
 else
-      echo "Employee is Absent"
+	emphrs=4
 fi
+        salary=$(( $emphrs * $EMP_RATE_PER_HOUR ))
+        echo $salary
