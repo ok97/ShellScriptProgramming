@@ -2,10 +2,12 @@ echo "Welcome"
 isfulltime=2
 ispartime=1
 EMP_RATE_PER_HRS=20
-TOTALSALARY=0
+TOTAL_EMPWAGE=0
+TOTAL_EMPHRS=0
 NUM_OF_WORKING_DAYS=20
+MAX_HRS_IN_MONTH=100
 
-for (( day=1; day<=$NUM_OF_WORKING_DAYS; day++ ))
+while [ $TOTAL_EMPHRS -le $MAX_HRS_IN_MONTH ]
 do
 
  empcheck=$((RANDOM%2))
@@ -21,10 +23,11 @@ do
 	emphrs=0
         ;;
 esac
-        salary=$(( $emphrs * $EMP_RATE_PER_HRS ))
-        echo $salary
-        TOTALSALARY=$(( $TOTALSALARY+$salary ))
+
+        empwage=$(( $emphrs * $EMP_RATE_PER_HRS ))
+        TOTAL_EMPHRS=$(($TOTAL_EMPHRS+$emphrs ))
+        TOTAL_EMPWAGE=$(( $TOTAL_EMPWAGE+$empwage ))
 
 done
 
-         echo "Total Salary=$TOTALSALARY"
+         echo "Total Employee Wage=$TOTAL_EMPWAGE"
