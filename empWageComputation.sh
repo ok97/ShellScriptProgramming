@@ -6,10 +6,8 @@ TOTAL_EMPWAGE=0
 TOTAL_EMPHRS=0
 NUM_OF_WORKING_DAYS=20
 MAX_HRS_IN_MONTH=100
-
 while [ $TOTAL_EMPHRS -le $MAX_HRS_IN_MONTH ]
 do
-
  empcheck=$((RANDOM%2))
 
  case $empcheck in 
@@ -23,8 +21,8 @@ do
 	emphrs=0
         ;;
 esac
-
         empwage=$(( $emphrs * $EMP_RATE_PER_HRS ))
+        echo "Daily Wage : $empwage"
         TOTAL_EMPHRS=$(($TOTAL_EMPHRS+$emphrs ))
         TOTAL_EMPWAGE=$(( $TOTAL_EMPWAGE+$empwage ))
 
